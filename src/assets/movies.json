@@ -2,16 +2,22 @@
   {
     "_id": 1,
     "title": "Inception",
-    "director": "Christopher Nolan"
+    "year": 2010,
+    "director": "Christopher Nolan",
+    "genre": "Sci-Fi"
   },
   {
     "_id": 2,
     "title": "The Matrix",
-    "director": "Lana Wachowski"
+    "year": 1999,
+    "director": "Lana Wachowski",
+    "genre": "Action"
   },
   {
     "_id": 3,
     "title": "Interstellar",
-    "director": "Christopher Nolan"
+    "year": 2014,
+    "director": "Christopher Nolan",
+    "genre": "Sci-Fi"
   }
 ]
