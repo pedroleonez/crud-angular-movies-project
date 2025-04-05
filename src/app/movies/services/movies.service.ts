@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Movie } from './../models/movie';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export class MoviesService {
     return this.httpClient.get<Movie[]>(this.apiUrl)
     .pipe(
       first(),
+      delay(2000),
       tap(movies => console.log(movies))
     );
   }
