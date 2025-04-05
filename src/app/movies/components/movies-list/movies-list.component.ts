@@ -11,17 +11,18 @@ import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import { GenrePipe } from '../../../shared/pipes/genre.pipe';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-movies-list',
-  imports: [MatTableModule, MatCardModule, MatToolbarModule, MatProgressSpinnerModule, CommonModule, MatIconModule, GenrePipe],
+  imports: [MatTableModule, MatCardModule, MatToolbarModule, MatProgressSpinnerModule, CommonModule, MatIconModule, GenrePipe, MatButtonModule],
   templateUrl: './movies-list.component.html',
   styleUrl: './movies-list.component.scss'
 })
 export class MoviesListComponent {
 
   movies$: Observable<Movie[]>;
-  displayedColumns = ['title', 'year', 'director', 'genre'];
+  displayedColumns = ['title', 'year', 'director', 'genre', 'actions'];
 
   constructor(
     private readonly moviesService: MoviesService,
