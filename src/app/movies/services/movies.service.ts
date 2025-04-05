@@ -8,12 +8,12 @@ import { delay, first, tap } from 'rxjs';
 })
 export class MoviesService {
 
-  private readonly apiUrl = 'assets/movies.json';
+  private readonly API = '/api/movies';
 
   constructor(private readonly httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Movie[]>(this.apiUrl)
+    return this.httpClient.get<Movie[]>(`${this.API}/all`)
     .pipe(
       first(),
       delay(2000),
