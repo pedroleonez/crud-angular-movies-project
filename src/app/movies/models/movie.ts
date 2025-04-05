@@ -1,7 +1,7 @@
 export interface Movie {
   _id: string;
   title: string;
-  year: number;
+  movieYear: number;
   director: string;
   genre: string;
 }
