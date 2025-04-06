@@ -40,4 +40,16 @@ export class MovieFormComponent {
   onClear() {
     this.form.reset();
   }
+
+  private onSuccess() {
+    this.snackBar.open('Filme salvo com sucesso!', '', {
+      duration: 3000
+    });
+  }
+
+  private onError() {
+    this.snackBar.open('Erro ao salvar o filme!', '', {
+      duration: 3000
+    });
+  }
 }
