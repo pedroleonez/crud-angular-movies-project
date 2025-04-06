@@ -22,7 +22,7 @@ export class MoviesService {
     );
   }
 
-  save(record: Movie) {
+  save(record: Partial<Movie>) {
     return this.httpClient.post<Movie>(`${this.API}/add`, record)
     .pipe(
       first()
