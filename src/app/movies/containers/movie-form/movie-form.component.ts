@@ -13,12 +13,21 @@ import { MoviesService } from '../../services/movies.service'
 
 @Component({
   selector: 'app-movie-form',
-  imports: [RouterOutlet, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatToolbar, MatSelectModule, MatSnackBarModule],
+  imports: [
+    RouterOutlet,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbar,
+    MatSelectModule,
+    MatSnackBarModule,
+  ],
   templateUrl: './movie-form.component.html',
-  styleUrl: './movie-form.component.scss'
+  styleUrl: './movie-form.component.scss',
 })
 export class MovieFormComponent {
-
   form: FormGroup<{
     title: FormControl<string>;
     movieYear: FormControl<number>;
@@ -32,26 +41,23 @@ export class MovieFormComponent {
     private snackBar: MatSnackBar
   ) {
     this.form = this.formBuilder.group({
-      title: (''),
-      movieYear: (null as unknown as number),
-      director: (''),
-      genre: ('')
+      title: '',
+      movieYear: null as unknown as number,
+      director: '',
+      genre: '',
     });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
-    this.service.save(this.form.value)
-      .subscribe({
-        next: (result) => {
-          this.onSuccess();
-          this.form.reset();
-        },
-        error: (error) => this.onError()
-      });
+    this.service.save(this.form.value).subscribe({
+      next: (result) => {
+        this.onSuccess();
+        this.form.reset();
+      },
+      error: (error) => this.onError(),
+    });
   }
 
   onClear() {
@@ -60,13 +66,13 @@ export class MovieFormComponent {
 
   private onSuccess() {
     this.snackBar.open('Filme salvo com sucesso!', '', {
-      duration: 3000
+      duration: 3000,
     });
   }
 
   private onError() {
     this.snackBar.open('Erro ao salvar o filme!', '', {
-      duration: 3000
+      duration: 3000,
     });
   }
 }

@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { Movie } from '../../models/movie'
 import { MoviesService } from '../../services/movies.service'
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component'
-import { MoviesListComponent } from '../movies-list/movies-list.component'
+import { MoviesListComponent } from '../../components/movies-list/movies-list.component'
 
 @Component({
   selector: 'app-movies',
@@ -51,6 +51,10 @@ export class MoviesComponent {
 
   onAdd() {
     this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onEdit(movie: Movie) {
+    this.router.navigate(['edit', movie.id], { relativeTo: this.route });
   }
 
 }
