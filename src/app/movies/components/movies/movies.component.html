@@ -4,56 +4,8 @@
     Filmes favoritos
   </mat-toolbar>
 
-  <div *ngIf="movies$ | async as movies; else loading" class="movies-list">
-    <mat-table [dataSource]="movies">
-      <!-- Title Definition -->
-      <ng-container matColumnDef="title">
-        <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
-        <mat-cell *matCellDef="let movie"> {{ movie.title }} </mat-cell>
-      </ng-container>
-
-      <!-- Year Definition -->
-      <ng-container matColumnDef="year">
-        <mat-header-cell *matHeaderCellDef> Ano </mat-header-cell>
-        <mat-cell *matCellDef="let movie"> {{ movie.movieYear }} </mat-cell>
-      </ng-container>
-
-      <!-- Director Definition -->
-      <ng-container matColumnDef="director">
-        <mat-header-cell *matHeaderCellDef> Diretor </mat-header-cell>
-        <mat-cell *matCellDef="let movie"> {{ movie.director }} </mat-cell>
-      </ng-container>
-
-      <!-- Genre Definition -->
-      <ng-container matColumnDef="genre">
-        <mat-header-cell *matHeaderCellDef> Gênero </mat-header-cell>
-        <mat-cell class="genre" *matCellDef="let movie"> {{ movie.genre }}
-          <mat-icon aria-hidden="false" aria-label="Categoria do filme.">{{ movie.genre | genre }}</mat-icon>
-        </mat-cell>
-      </ng-container>
-
-      <!-- Actions Definition -->
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef>
-          <button mat-mini-fab aria-label="Adicionar um filme.">
-            <mat-icon (click)="onAdd()">add</mat-icon>
-          </button>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let movie">
-          <button mat-icon-button aria-label="Editar filme.">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button aria-label="Remover filme.">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
-
-      <!-- Header and Row Declarations -->
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </div>
+  <app-movies-list
+  *ngIf="movies$ | async as movies; else loading" [movies]="movies" class="movies-list"></app-movies-list>
 
   <ng-template #loading>
     <div class="loading-spinner">

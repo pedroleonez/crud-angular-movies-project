@@ -13,18 +13,17 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { Movie } from '../../models/movie'
 import { MoviesService } from '../../services/movies.service'
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component'
-import { GenrePipe } from '../../../shared/pipes/genre.pipe'
+import { MoviesListComponent } from '../movies-list/movies-list.component'
 
 @Component({
   selector: 'app-movies',
-  imports: [MatTableModule, MatCardModule, MatToolbarModule, MatProgressSpinnerModule, CommonModule, MatIconModule, GenrePipe, MatButtonModule],
+  imports: [MatTableModule, MatCardModule, MatToolbarModule, MatProgressSpinnerModule, CommonModule, MatIconModule, MatButtonModule, MoviesListComponent],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss'
 })
 export class MoviesComponent {
 
   movies$: Observable<Movie[]>;
-  displayedColumns = ['title', 'year', 'director', 'genre', 'actions'];
 
   constructor(
     private readonly moviesService: MoviesService,
