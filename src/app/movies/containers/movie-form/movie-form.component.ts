@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms'
+import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { RouterOutlet } from '@angular/router'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
@@ -10,7 +10,6 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
 
 import { MoviesService } from '../../services/movies.service'
-import { Movie } from '../../models/movie'
 
 @Component({
   selector: 'app-movie-form',
