@@ -16,12 +16,12 @@ import { ErrorDialogComponent } from '../../../shared/components/error-dialog/er
 import { GenrePipe } from '../../../shared/pipes/genre.pipe'
 
 @Component({
-  selector: 'app-movies-list',
+  selector: 'app-movies',
   imports: [MatTableModule, MatCardModule, MatToolbarModule, MatProgressSpinnerModule, CommonModule, MatIconModule, GenrePipe, MatButtonModule],
-  templateUrl: './movies-list.component.html',
-  styleUrl: './movies-list.component.scss'
+  templateUrl: './movies.component.html',
+  styleUrl: './movies.component.scss'
 })
-export class MoviesListComponent {
+export class MoviesComponent {
 
   movies$: Observable<Movie[]>;
   displayedColumns = ['title', 'year', 'director', 'genre', 'actions'];
