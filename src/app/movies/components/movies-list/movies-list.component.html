@@ -20,15 +20,22 @@
   <!-- Genre Definition -->
   <ng-container matColumnDef="genre">
     <mat-header-cell *matHeaderCellDef> Gênero </mat-header-cell>
-    <mat-cell class="genre" *matCellDef="let movie"> {{ movie.genre }}
-      <mat-icon aria-hidden="false" aria-label="Categoria do filme.">{{ movie.genre | genre }}</mat-icon>
+    <mat-cell class="genre" *matCellDef="let movie">
+      {{ movie.genre }}
+      <mat-icon aria-hidden="false" aria-label="Categoria do filme.">{{
+        movie.genre | genre
+      }}</mat-icon>
     </mat-cell>
   </ng-container>
 
   <!-- Actions Definition -->
-  <ng-container matColumnDef="actions" >
+  <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>
-      <button mat-mini-fab title="Adicionar um filme." aria-label="Adicionar um filme.">
+      <button
+        mat-mini-fab
+        title="Adicionar um filme."
+        aria-label="Adicionar um filme."
+      >
         <mat-icon (click)="onAdd()">add</mat-icon>
       </button>
     </mat-header-cell>
@@ -36,13 +43,17 @@
       <button mat-icon-button title="Editar filme." aria-label="Editar filme.">
         <mat-icon (click)="onEdit(movie)">edit</mat-icon>
       </button>
-      <button mat-icon-button title="Remover filme." aria-label="Remover filme.">
-        <mat-icon>delete</mat-icon>
+      <button
+        mat-icon-button
+        title="Remover filme."
+        aria-label="Remover filme."
+      >
+        <mat-icon (click)="onDelete(movie)">delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>
 
   <!-- Header and Row Declarations -->
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 </mat-table>

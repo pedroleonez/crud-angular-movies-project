@@ -49,4 +49,11 @@ export class MoviesService {
       first()
     );
   }
+
+  delete(id: string) {
+    return this.httpClient.delete(`${this.API}/delete/${id}`)
+    .pipe(
+      first()
+    );
+  }
 }
