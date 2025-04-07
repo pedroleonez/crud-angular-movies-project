@@ -28,15 +28,15 @@
   <!-- Actions Definition -->
   <ng-container matColumnDef="actions" >
     <mat-header-cell *matHeaderCellDef>
-      <button mat-mini-fab aria-label="Adicionar um filme.">
+      <button mat-mini-fab title="Adicionar um filme." aria-label="Adicionar um filme.">
         <mat-icon (click)="onAdd()">add</mat-icon>
       </button>
     </mat-header-cell>
     <mat-cell *matCellDef="let movie" class="action-column mat-cell-actions">
-      <button mat-icon-button aria-label="Editar filme.">
+      <button mat-icon-button title="Editar filme." aria-label="Editar filme.">
         <mat-icon (click)="onEdit(movie)">edit</mat-icon>
       </button>
-      <button mat-icon-button aria-label="Remover filme.">
+      <button mat-icon-button title="Remover filme." aria-label="Remover filme.">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
