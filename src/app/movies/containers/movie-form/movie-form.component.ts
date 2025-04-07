@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms'
-import { RouterOutlet } from '@angular/router'
+import { ActivatedRoute, RouterOutlet } from '@angular/router'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
@@ -10,6 +10,8 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
 
 import { MoviesService } from '../../services/movies.service'
+import { Movie } from '../../models/movie'
+import { coerceStringArray } from '@angular/cdk/coercion'
 
 @Component({
   selector: 'app-movie-form',
@@ -29,6 +31,7 @@ import { MoviesService } from '../../services/movies.service'
 })
 export class MovieFormComponent {
   form: FormGroup<{
+    id: FormControl<string>;
     title: FormControl<string>;
     movieYear: FormControl<number>;
     director: FormControl<string>;
@@ -38,17 +41,28 @@ export class MovieFormComponent {
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private service: MoviesService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
+      id: '',
       title: '',
       movieYear: null as unknown as number,
       director: '',
-      genre: '',
+      genre: ''
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const movie: Movie = this.route.snapshot.data['movie'];
+    this.form.setValue({
+      id: movie.id,
+      title: movie.title,
+      movieYear: movie.movieYear,
+      director: movie.director,
+      genre: movie.genre
+    })
+  }
 
   onSubmit() {
     this.service.save(this.form.value).subscribe({
