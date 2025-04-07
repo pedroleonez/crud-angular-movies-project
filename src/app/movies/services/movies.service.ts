@@ -28,4 +28,11 @@ export class MoviesService {
       first()
     );
   }
+
+  loadById(id: string) {
+    return this.httpClient.get<Movie>(`${this.API}/get/${id}`)
+    .pipe(
+      first()
+    );
+  }
 }
