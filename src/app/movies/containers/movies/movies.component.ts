@@ -15,6 +15,7 @@ import { Movie } from '../../models/movie'
 import { MoviesService } from '../../services/movies.service'
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component'
 import { MoviesListComponent } from '../../components/movies-list/movies-list.component'
+import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component'
 
 @Component({
   selector: 'app-movies',
@@ -68,16 +69,24 @@ export class MoviesComponent {
   }
 
   onDelete(movie: Movie) {
-    this.moviesService.delete(movie.id).subscribe(
-      () => {
-        this.refresh();
-        this.snackBar.open('Filme removido com sucesso!', 'X', {
-          duration: 3000,
-          verticalPosition: 'top',
-          horizontalPosition: 'center',
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja remover esse filme?',
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.moviesService.delete(movie.id).subscribe({
+          next: () => {
+            this.refresh();
+            this.snackBar.open('Filme removido com sucesso!', 'X', {
+              duration: 3000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+          },
+          error: () => this.onError('Erro ao tentar remover filme.')
         });
-      },
-      (error) => this.onError('Erro ao tentar remover o filme!')
-    );
+      }
+    });
   }
 }
