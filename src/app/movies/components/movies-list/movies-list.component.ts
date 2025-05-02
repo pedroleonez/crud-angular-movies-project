@@ -32,7 +32,7 @@ export class MoviesListComponent {
   @Output() edit = new EventEmitter(false);
   @Output() delete = new EventEmitter(false);
 
-  readonly displayedColumns = ['title', 'year', 'director', 'genre', 'actions'];
+  readonly displayedColumns = ['title', 'year', 'genre', 'actions'];
 
   constructor() {}
 

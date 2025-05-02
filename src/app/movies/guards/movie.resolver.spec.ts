@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { ResolveFn } from '@angular/router';
+import { ResolveFn, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { movieResolver } from './movie.resolver';
+import { Movie } from '../models/movie';
 
 describe('movieResolver', () => {
-  const executeResolver: ResolveFn<boolean> = (...resolverParameters) => 
-      TestBed.runInInjectionContext(() => movieResolver(...resolverParameters));
+  const executeResolver: ResolveFn<Movie | Observable<Movie>> = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
+      TestBed.runInInjectionContext(() => movieResolver(route, state));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

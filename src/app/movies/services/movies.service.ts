@@ -14,7 +14,7 @@ export class MoviesService {
   constructor(private readonly httpClient: HttpClient) { }
 
   list() {
-    return this.httpClient.get<Movie[]>(`${this.API}/all`)
+    return this.httpClient.get<Movie[]>(`${this.API}/getall`)
     .pipe(
       first(),
       delay(2000),

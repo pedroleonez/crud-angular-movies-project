@@ -1,20 +1,22 @@
 <div class="main-container">
   <mat-card appearance="outlined">
-
     <mat-toolbar>Informações do filme:</mat-toolbar>
 
     <mat-card-content>
       <form [formGroup]="form">
         <mat-form-field appearance="fill">
-          <input matInput placeholder="Título" formControlName="title">
+          <input matInput placeholder="Título" formControlName="title" #title />
+          <mat-hint align="end">{{title.value.length}} / 100</mat-hint>
+          @if (form.get('title')?.invalid) {
+            <mat-error>{{errorMessage('title')}}</mat-error>
+          }
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <input matInput placeholder="Ano" formControlName="movieYear">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <input matInput placeholder="Diretor" formControlName="director">
+          <input matInput placeholder="Ano" formControlName="movieYear" />
+          @if (form.get('movieYear')?.invalid) {
+            <mat-error>{{errorMessage('movieYear')}}</mat-error>
+          }
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -25,6 +27,9 @@
             <mat-option value="Horror">Horror</mat-option>
             <mat-option value="Sci-Fi">Sci-Fi</mat-option>
           </mat-select>
+          @if (form.get('genre')?.invalid) {
+            <mat-error>{{errorMessage('genre')}}</mat-error>
+          }
         </mat-form-field>
       </form>
     </mat-card-content>
@@ -33,7 +38,6 @@
       <button mat-flat-button (click)="onSubmit()">Salvar</button>
       <button mat-raised-button (click)="onClear()">Limpar</button>
     </mat-card-actions>
-
   </mat-card>
 </div>
 

@@ -16,7 +16,6 @@ export const movieResolver: ResolveFn<Observable<Movie>> = (
     id: '',
     title: '',
     movieYear: null as unknown as number,
-    director: '',
     genre: '',
   });
 };
