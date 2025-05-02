@@ -39,7 +39,7 @@ Um aplicativo de catálogo de filmes completo desenvolvido com Angular e Spring 
 
 1. Clone o repositório:
 ```bash
-git clone <url-do-repositório>
+git clone <https://github.com/pedroleonez/crud-angular-movies-project.git>
 cd crud-angular-movies-project
 ```
 
