@@ -1,59 +1,103 @@
-# CrudAngular
+# 🎬 Movies Catalog - CRUD Angular Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+Um aplicativo de catálogo de filmes completo desenvolvido com Angular e Spring Boot, permitindo operações CRUD (Create, Read, Update, Delete) para gerenciar uma coleção de filmes.
 
-## Development server
+## 📋 Funcionalidades
 
-To start a local development server, run:
+- **Listagem de Filmes**: Visualize todos os filmes cadastrados com informações como título, ano, gênero e diretor
+- **Adicionar Filmes**: Cadastre novos filmes com validação de dados
+- **Editar Filmes**: Atualize informações dos filmes existentes
+- **Excluir Filmes**: Remova filmes da coleção com diálogo de confirmação
+- **Validação de Formulários**: Validação completa com mensagens de erro personalizadas
+- **Design Responsivo**: Interface adaptável para diferentes tamanhos de tela
 
+## 🛠️ Tecnologias
+
+### Frontend (Angular)
+- Angular 17+ (usando o novo sistema de controle de fluxo com @if, @for)
+- Angular Material para componentes de UI
+- Reactive Forms com validação personalizada
+- Pipes personalizados para formatação de dados
+- Lazy loading para módulos
+
+### Backend (Spring Boot - em repositório separado)
+- API RESTful com Spring Boot
+- Spring Data JPA para persistência
+- H2/PostgreSQL para banco de dados
+- Spring Validation para validação de dados
+
+## 🚀 Começando
+
+### Pré-requisitos
+- Node.js (v18+)
+- NPM ou Yarn
+- Angular CLI (v17+)
+- Java 17+ (para o backend)
+- Maven ou Gradle (para o backend)
+
+### Instalação e Execução
+
+1. Clone o repositório:
 ```bash
-ng serve
+git clone <url-do-repositório>
+cd crud-angular-movies-project
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+2. Instale as dependências:
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+3. Execute o servidor de desenvolvimento:
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+4. Acesse o aplicativo em `http://localhost:4200/`
 
-To build the project run:
+### Conectando ao Backend
 
-```bash
-ng build
+O aplicativo está configurado para se conectar ao backend Spring Boot através de um proxy. Verifique o arquivo `proxy.conf.js` para detalhes da configuração.
+
+## 📐 Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── app.component - Componente raiz
+│   ├── movies/ - Módulo principal de filmes
+│   │   ├── components/ - Componentes de apresentação
+│   │   ├── containers/ - Componentes inteligentes (com lógica)
+│   │   ├── guards/ - Guards de rota e resolvers
+│   │   ├── models/ - Interfaces e modelos
+│   │   └── services/ - Serviços para API
+│   └── shared/ - Módulo compartilhado
+│       ├── components/ - Componentes reutilizáveis
+│       ├── form/ - Utilitários para formulários
+│       └── pipes/ - Pipes personalizados
+└── assets/ - Recursos estáticos
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🧪 Testes
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+Execute os testes unitários com:
 ```bash
-ng test
+npm test
 ```
 
-## Running end-to-end tests
+## 📦 Build
 
-For end-to-end (e2e) testing, run:
-
+Para gerar a build de produção:
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Os arquivos estarão disponíveis no diretório `dist/`.
 
-## Additional Resources
+## 🤝 Contribuições
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT - consulte o arquivo LICENSE para obter detalhes.
